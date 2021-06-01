@@ -158,7 +158,7 @@
           console.log('appt++++++++++++++++++',appt);
 
           var p = defaultAppt();
-          p.birthdate = patient.birthDate;
+          p.apttStatus = aptt[0].status;
           res.resolve(p);
         });
       } else {
@@ -173,14 +173,14 @@
 
   function defaultAppt(){
     return {
-      birthdate: {value: ''}
+      apttStatus: {value: ''}
     };
   }
 
   window.drawApptVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();    
-    $('#birthdate').html(p.birthdate);
+    $('#apttStatus').html(p.apttStatus);
   };
 
 })(window);
