@@ -8,7 +8,6 @@
     }
 
     function onReady(smart)  {
-      console.log('smart++++++++',smart);
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;        
         var pt = patient.read();
@@ -152,8 +151,7 @@
                   });
         $.when(pt, appt).fail(onError);
         $.when(pt, appt).done(function(patient, appt) {
-          console.log('patient++++++++++++++++++',patient);
-          console.log('appt++++++++++++++++++',appt[0].status);
+          console.log('appt++++++++++++++++++',appt[0]);
           var p = defaultAppt();
           p.apptStatus = appt[0].status;
           p.description = appt[0].description;
