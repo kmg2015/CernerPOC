@@ -18,7 +18,7 @@
         var appt = smart.patient.api.fetchAll({
                     type: 'Appointment',
                     query: {
-                      _id: patient.id
+                      patient: patient.id
                     }
                   });
         $.when(pt, appt).fail(onError);
