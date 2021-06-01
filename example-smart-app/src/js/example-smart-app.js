@@ -12,7 +12,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-        
+        console.log('pt',pt);
         var appt = smart.patient.api.fetchAll({
                     type: 'Appointment',
                     query: {
