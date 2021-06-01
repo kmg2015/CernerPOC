@@ -140,11 +140,9 @@
     }
 
     function onReady(smart)  {
-      console.log('smart++++++++',smart);
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;        
         var pt = patient.read();
-        console.log('patient data+++++++',patient);
         var appt = smart.patient.api.fetchAll({
                     type: 'Appointment',
                     query: {
@@ -155,10 +153,9 @@
         $.when(pt, appt).fail(onError);
         $.when(pt, appt).done(function(patient, appt) {
           console.log('patient++++++++++++++++++',patient);
-          console.log('appt++++++++++++++++++',appt);
-
+          console.log('appt++++++++++++++++++',appt[0].status);
           var p = defaultAppt();
-          p.apttStatus = aptt[0].status;
+          p.apptStatus = aptt[0].status;
           res.resolve(p);
         });
       } else {
@@ -173,14 +170,15 @@
 
   function defaultAppt(){
     return {
-      apttStatus: {value: ''}
+      apptStatus: {value: ''}
     };
   }
 
   window.drawApptVisualization = function(p) {
+    console.log('p',p);
     $('#holder').show();
     $('#loading').hide();    
-    $('#apttStatus').html(p.apttStatus);
+    $('#apptStatus').html(p.apptStatus);
   };
 
 })(window);
