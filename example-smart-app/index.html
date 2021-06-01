@@ -24,8 +24,8 @@
       <h2>Appointment Resource</h2>
       <table>
         <tr>
-          <th>Date of Birth:</th>
-          <td id='birthdate'></td>
+          <th>Appointment Status:</th>
+          <td id='apttStatus'></td>
         </tr>
       </table>
       <h2>Patient Resource</h2>
@@ -106,12 +106,6 @@
         //Display Appointment if extractAppointment was success
         function(p) {
           drawApptVisualization(p);
-        },
-
-        //Display 'Failed to call FHIR Service' if extractData failed
-        function() {
-          $('#loading').hide();
-          $('#errors').html('<p> Failed to call FHIR Service </p>');
         }
       );
     </script>
