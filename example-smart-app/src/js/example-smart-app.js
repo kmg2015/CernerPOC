@@ -14,7 +14,10 @@
         var pt = patient.read();
         
         var appt = smart.patient.api.fetchAll({
-                    type: 'Appointment'                    
+                    type: 'Appointment',
+                    query: {
+                      _id: pt.id
+                    }
                   });
         $.when(pt, appt).fail(onError);
         $.when(pt, appt).done(function(patient, appt) {
