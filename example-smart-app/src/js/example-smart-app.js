@@ -155,7 +155,7 @@
           console.log('patient++++++++++++++++++',patient);
           console.log('appt++++++++++++++++++',appt[0].status);
           var p = defaultAppt();
-          p.apptStatus = aptt[0].status;
+          p.apptStatus = appt[0].status;
           res.resolve(p);
         });
       } else {
