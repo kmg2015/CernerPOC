@@ -156,6 +156,8 @@
           console.log('appt++++++++++++++++++',appt[0].status);
           var p = defaultAppt();
           p.apptStatus = appt[0].status;
+          p.description = appt[0].description;
+          p.minutesDuration = appt[0].minutesDuration;
           res.resolve(p);
         });
       } else {
@@ -170,7 +172,9 @@
 
   function defaultAppt(){
     return {
-      apptStatus: {value: ''}
+      apptStatus: {value: ''},
+      description: {value: ''},
+      minutesDuration: {value: ''}
     };
   }
 
@@ -179,6 +183,8 @@
     $('#holder').show();
     $('#loading').hide();    
     $('#apptStatus').html(p.apptStatus);
+    $('#description').html(p.description);
+    $('#minutesDuration').html(p.minutesDuration);
   };
 
 })(window);
