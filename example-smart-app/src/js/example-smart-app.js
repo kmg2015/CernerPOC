@@ -10,10 +10,9 @@
     function onReady(smart)  {
       console.log('smart++++++++',smart);
       if (smart.hasOwnProperty('patient')) {
-        var patient = smart.patient;
-      console.log('patient+++++++',patient);
-        
+        var patient = smart.patient;        
         var pt = patient.read();
+        console.log('patient data+++++++',patient);
         var appt = smart.patient.api.fetchAll({
                     type: 'Appointment',
                     query: {
