@@ -96,6 +96,18 @@
           $('#errors').html('<p> Failed to call FHIR Service </p>');
         }
       );
+       extractAppointment().then(
+        //Display Appointment if extractAppointment was success
+        function(p) {
+          drawApptVisualization(p);
+        },
+
+        //Display 'Failed to call FHIR Service' if extractData failed
+        function() {
+          $('#loading').hide();
+          $('#errors').html('<p> Failed to call FHIR Service </p>');
+        }
+      );
     </script>
   </body>
 </html>
