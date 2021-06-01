@@ -12,6 +12,18 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+        
+        var appt = smart.patient.api.fetchAll({
+                    type: 'Appointment'                    
+                  });
+        $.when(pt, appt).fail(onError);
+        $.when(pt, appt).done(function(patient, appt) {
+          console.log('patient++++++++++++++++++',patient);
+          console.log('appt++++++++++++++++++',appt);
+          ret.resolve(appt);
+        });
+      
+        
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
