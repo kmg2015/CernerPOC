@@ -13,21 +13,7 @@
         var patient = smart.patient;        
         var pt = patient.read();
         console.log('patient data+++++++',patient);
-        var appt = smart.patient.api.fetchAll({
-                    type: 'Appointment',
-                    query: {
-                      patient: patient.id,
-                      date: 2021
-                    }
-                  });
-        $.when(pt, appt).fail(onError);
-        $.when(pt, appt).done(function(patient, appt) {
-          console.log('patient++++++++++++++++++',patient);
-          console.log('appt++++++++++++++++++',appt);
-          ret.resolve(appt);
-        });
       
-        
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -143,6 +129,58 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+  };
+  
+  window.extractAppointment = function() {
+    var res = $.Deferred();
+
+    function onError() {
+      console.log('Loading Appt error', arguments);
+      res.reject();
+    }
+
+    function onReady(smart)  {
+      console.log('smart++++++++',smart);
+      if (smart.hasOwnProperty('patient')) {
+        var patient = smart.patient;        
+        var pt = patient.read();
+        console.log('patient data+++++++',patient);
+        var appt = smart.patient.api.fetchAll({
+                    type: 'Appointment',
+                    query: {
+                      patient: patient.id,
+                      date: 2021
+                    }
+                  });
+        $.when(pt, appt).fail(onError);
+        $.when(pt, appt).done(function(patient, appt) {
+          console.log('patient++++++++++++++++++',patient);
+          console.log('appt++++++++++++++++++',appt);
+
+          var p = defaultAppt();
+          p.birthdate = patient.birthDate;
+          res.resolve(p);
+        });
+      } else {
+        onError();
+      }
+    }
+
+    FHIR.oauth2.ready(onReady, onError);
+    return res.promise();
+
+  };
+
+  function defaultAppt(){
+    return {
+      birthdate: {value: ''}
+    };
+  }
+
+  window.drawApptVisualization = function(p) {
+    $('#holder').show();
+    $('#loading').hide();    
+    $('#birthdate').html(p.birthdate);
   };
 
 })(window);
