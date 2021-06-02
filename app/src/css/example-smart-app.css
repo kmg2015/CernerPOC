@@ -33,6 +33,10 @@ body {
   animation-delay: -0.32s;
 }
 
+.appt {
+  width : 100%;
+}
+
 .spinner .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
