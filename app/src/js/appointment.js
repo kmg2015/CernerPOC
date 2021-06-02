@@ -53,6 +53,8 @@
 //     $('#description').html(p.description);
 //     $('#minutesDuration').html(p.minutesDuration); 
     var data = JSON.parse(p);
+    console.log('datadatadata++++++++++++++++++++p+++++++++++++++++++',data);
+    
 data.forEach(function(e, i) {
   html += "<tr>" + "<td>" + e.apptStatus + "</td>" + 
                    "<td>" + e.description + "</td>" + 
