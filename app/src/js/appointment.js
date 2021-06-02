@@ -59,7 +59,7 @@ data.forEach(function(e, i) {
 //   html += "<tr>" + "<td>" + e.status + "</td>" + 
 //                    "<td>" + e.description + "</td>" + 
 //                    "<td>" + e.minutesDuration + "</td>" + "</tr>";
-    html += "<div>" + e.text.div + "</div>";
+    html += e.text.div;
 })
 
 document.getElementById("putHere").innerHTML = html;
