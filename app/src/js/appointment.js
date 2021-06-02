@@ -44,7 +44,7 @@
   }
 
   window.drawApptVisualization = function(p) {
-    console.log('p+++++++++++++++++++',p);
+    console.log('++++++++++++++++++++p+++++++++++++++++++',p);
     $('#holder').show();
     $('#loading').hide();    
     $('#apptStatus').html(p.apptStatus);
