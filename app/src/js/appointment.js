@@ -45,11 +45,21 @@
 
   window.drawApptVisualization = function(p) {
     console.log('++++++++++++++++++++p+++++++++++++++++++',p);
+     html = "";
     $('#holder').show();
     $('#loading').hide();    
-    $('#apptStatus').html(p.apptStatus);
-    $('#description').html(p.description);
-    $('#minutesDuration').html(p.minutesDuration);   
+//     $('#apptStatus').html(p.apptStatus);
+//     $('#description').html(p.description);
+//     $('#minutesDuration').html(p.minutesDuration); 
+    var data = JSON.parse(p.description);
+data.forEach(function(e, i) {
+  html += "<tr>" + "<td>" + p.apptStatus + "</td>" + 
+                   "<td>" + p.description + "</td>" + 
+                   "<td>" + p.minutesDuration + "</td>" + "</tr>";
+})
+
+document.getElementById("putHere").innerHTML = html;
+
   };
 
 })(window);
