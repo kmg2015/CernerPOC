@@ -22,10 +22,11 @@
         $.when(appt).fail(onError);
         $.when(appt).done(function(appt) {
           console.log('appt++++++++++++++++++',appt);
-          var p = defaultAppt();
-          p.apptStatus = appt[0].status;
-          p.description = JSON.stringify(appt);
-          p.minutesDuration = appt[0].minutesDuration;
+          var p = JSON.stringify(appt);
+//           var p = defaultAppt();
+//           p.apptStatus = appt[0].status;
+//           p.description = JSON.stringify(appt);
+//           p.minutesDuration = appt[0].minutesDuration;
           res.resolve(p);
         });
     }
@@ -51,11 +52,11 @@
 //     $('#apptStatus').html(p.apptStatus);
 //     $('#description').html(p.description);
 //     $('#minutesDuration').html(p.minutesDuration); 
-    var data = JSON.parse(p.description);
+    var data = JSON.parse(p);
 data.forEach(function(e, i) {
-  html += "<tr>" + "<td>" + p.apptStatus + "</td>" + 
-                   "<td>" + p.description + "</td>" + 
-                   "<td>" + p.minutesDuration + "</td>" + "</tr>";
+  html += "<tr>" + "<td>" + e.apptStatus + "</td>" + 
+                   "<td>" + e.description + "</td>" + 
+                   "<td>" + e.minutesDuration + "</td>" + "</tr>";
 })
 
 document.getElementById("putHere").innerHTML = html;
