@@ -26,7 +26,7 @@
           p.apptStatus = appt[0].status;
           p.description = appt[0].description;
           p.minutesDuration = appt[0].minutesDuration;
-          res.resolve(p);
+          res.resolve(appt);
         });
     }
 
@@ -47,9 +47,9 @@
     console.log('p+++++++++++++++++++',p);
     $('#holder').show();
     $('#loading').hide();    
-    $('#apptStatus').html(p.apptStatus);
-    $('#description').html(p.description);
-    $('#minutesDuration').html(p.minutesDuration);
+//     $('#apptStatus').html(p.apptStatus);
+    $('#description').html(p);
+//     $('#minutesDuration').html(p.minutesDuration);   
   };
 
 })(window);
