@@ -56,9 +56,10 @@
     console.log('datadatadata++++++++++++++++++++p+++++++++++++++++++',data);
     
 data.forEach(function(e, i) {
-  html += "<tr>" + "<td>" + e.status + "</td>" + 
-                   "<td>" + e.description + "</td>" + 
-                   "<td>" + e.minutesDuration + "</td>" + "</tr>";
+//   html += "<tr>" + "<td>" + e.status + "</td>" + 
+//                    "<td>" + e.description + "</td>" + 
+//                    "<td>" + e.minutesDuration + "</td>" + "</tr>";
+    html += "<div>" + e.text.div + "</div>";
 })
 
 document.getElementById("putHere").innerHTML = html;
