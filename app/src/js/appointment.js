@@ -24,9 +24,9 @@
           console.log('appt++++++++++++++++++',appt);
           var p = defaultAppt();
           p.apptStatus = appt[0].status;
-          p.description = appt[0].description;
+          p.description = JSON.stringify(appt);
           p.minutesDuration = appt[0].minutesDuration;
-          res.resolve(appt);
+          res.resolve(p);
         });
     }
 
@@ -47,9 +47,9 @@
     console.log('p+++++++++++++++++++',p);
     $('#holder').show();
     $('#loading').hide();    
-//     $('#apptStatus').html(p.apptStatus);
-    $('#description').html(JSON.stringify(p));
-//     $('#minutesDuration').html(p.minutesDuration);   
+    $('#apptStatus').html(p.apptStatus);
+    $('#description').html(p.description);
+    $('#minutesDuration').html(p.minutesDuration);   
   };
 
 })(window);
