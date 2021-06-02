@@ -48,7 +48,7 @@
     $('#holder').show();
     $('#loading').hide();    
 //     $('#apptStatus').html(p.apptStatus);
-    $('#description').html(p);
+    $('#description').html(JSON.stringify(p));
 //     $('#minutesDuration').html(p.minutesDuration);   
   };
 
