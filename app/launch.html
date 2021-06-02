@@ -8,7 +8,7 @@
       Temporarily disable cerner-smart-embeddable-lib
       <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
     -->
-    <title>Cerner PUC</title>
+    <title>Cerner POC</title>
   </head>
   <body>
     <!-- Required JS files to enable this page to embed within an MPage -->
@@ -27,7 +27,7 @@
     <script>
       FHIR.oauth2.authorize({
         'client_id': 'e4dd4ed8-fbcf-4c28-9c55-970f74c7fb39',
-        'scope':  'patient/Observation.read patient/Patient.read patient/Appointment.read patient/Appointment.write launch online_access openid profile'
+        'scope':  'user/Appointment.read user/Patient.read user/Observation.read launch online_access openid profile'
       });
     </script>
     
