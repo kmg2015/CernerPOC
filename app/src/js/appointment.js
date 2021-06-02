@@ -19,8 +19,8 @@
                       date: 2021
                     }
                   });
-        $.when(pt, appt).fail(onError);
-        $.when(pt, appt).done(function(user, appt) {
+        $.when(appt).fail(onError);
+        $.when(appt).done(function(appt) {
           console.log('appt++++++++++++++++++',appt);
           var p = defaultAppt();
           p.apptStatus = appt[0].status;
