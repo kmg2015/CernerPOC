@@ -56,7 +56,7 @@
     console.log('datadatadata++++++++++++++++++++p+++++++++++++++++++',data);
     
 data.forEach(function(e, i) {
-  html += "<tr>" + "<td>" + e.apptStatus + "</td>" + 
+  html += "<tr>" + "<td>" + e.status + "</td>" + 
                    "<td>" + e.description + "</td>" + 
                    "<td>" + e.minutesDuration + "</td>" + "</tr>";
 })
